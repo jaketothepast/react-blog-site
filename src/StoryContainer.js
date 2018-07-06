@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { Card, ImageHeader, CardBody, CardFooter } from 'react-simple-card';
 
 import './StoryContainer.css'
+import StoryCard from './StoryCard.js'
 
 class StoryContainer extends Component {
     constructor(props) {
@@ -17,16 +18,9 @@ class StoryContainer extends Component {
     }
 
     render() {
-
         var cards = this.state.stories.map((story) => {
-                return (
-                    <Card style={{width: 300, height: 300}} className="ImageHeader-scaled">
-                        <ImageHeader imageSrc={story.imgUrl}>Header</ImageHeader>
-                        <CardBody>Lorem Ipsum</CardBody>
-                        <CardFooter>Footer</CardFooter>
-                    </Card>
-                )
-            });
+           return <StoryCard imgUrl={story.imgUrl} />
+        });
 
         return(
         <div className='StoryContainer-cards'>
