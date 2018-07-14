@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import './Nav.css'
 
@@ -24,9 +25,7 @@ class Nav extends Component {
 
     render() {
         var rows = this.state.links.map((link) => {
-           return <li className="Nav-link">
-               <a href="#" onClick={(e) => this.sayHello(link.text, e)}>{ link.text }</a>
-            </li>;
+           return <Link to="/stories">link.text</Link>;
         });
 
         return (

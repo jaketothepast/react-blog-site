@@ -5,6 +5,8 @@ import Nav from './Nav.js';
 import NameCard from './NameCard.js';
 import StoryContainer from './StoryContainer';
 
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+
 class App extends Component {
 
     constructor(props) {
@@ -13,20 +15,27 @@ class App extends Component {
     
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <NameCard />
-          {/*<img src={logo} className="App-logo" alt="logo" />*/}
-          {/*<h1 className="App-title">Welcome to React</h1>*/}
-        </header>
+        <div className="App">
+          <header className="App-header">
+            <NameCard name="Jake Windle" />
+          </header>
           <Nav />
-          <StoryContainer />
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+          <Switch>
+            <Route path="/stories" component={StoryContainer} />
+          </Switch>
+        </div>
     );
   }
 }
 
-export default App;
+class Main extends Component {
+  render() {
+    return (
+      <BrowserRouter>
+        <App/>
+      </BrowserRouter>
+    );
+  }
+}
+
+export default Main;
